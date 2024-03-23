@@ -21,22 +21,13 @@ function newImage(path, left, bottom) {
     return newCharacter;
 }
 
-let greenCharacterpath = 'assets/green-character.gif';
-let greenCharacterleft = '100px';
-let greenCharacterbottom = '100px';
-let greenCharacter = newImage(greenCharacterpath, greenCharacterleft, greenCharacterbottom);
+let greenCharacter = newImage('assets/green-character.gif', '100px', '100px');
 document.body.append(greenCharacter)
 
-let pineTreePath = 'assets/pine-tree.png';
-let pineTreeleft = '450px';
-let pineTreebottom = '200px';
-let pineTree = newImage(pineTreePath, pineTreeleft, pineTreebottom);
+let pineTree = newImage('assets/pine-tree.png', '450px', '200px');
 document.body.append(pineTree)
 
-swordPath = 'assets/sword.png'
-swordLeft = '500px'
-swordBottom = '405px'
-let sword = newImage(swordPath, swordLeft, swordBottom);
+let sword = newImage('assets/sword.png', '500px', '405px');
 document.body.append(sword)
 
 
@@ -48,31 +39,16 @@ sword.addEventListener('dbclick', function(){
     sword.remove()
 })
 
-treePath = 'assets/tree.png'
-treeLeft = '200px'
-treeBottom = '300px'
-let tree = newImage(treePath, treeLeft, treeBottom);
+let tree = newImage('assets/tree.png', '200px', '300px');
 document.body.append(tree)
 
-
-pillarPath = 'assets/pillar.png'
-pillarLeft = '350px'
-pillarBottom = '100px'
-let pillar = newImage(pillarPath, pillarLeft, pillarBottom);
+let pillar = newImage('assets/pillar.png', '350px', '100px');
 document.body.append(pillar)
 
-
-cratePath = 'assets/crate.png'
-crateLeft = '150px'
-crateBottom = '200px'
-let crate = newImage(cratePath, crateLeft, crateBottom);
+let crate = newImage('assets/crate.png', '150px', '200px');
 document.body.append(crate)
 
-
-wellPath = 'assets/well.png'
-wellLeft = '500px'
-wellBottom = '425px'
-let well = newImage(wellPath, wellLeft, wellBottom);
+let well = newImage('assets/well.png', '500px', '425px');
 document.body.append(well)
 
 
@@ -85,25 +61,55 @@ function newItem(path, left, bottom) {
     return newIt;
 }
 
-
-shieldPath = 'assets/shield.png'
-shieldLeft = '165px'
-shieldBottom = '185px'
-let shield = newImage(shieldPath, shieldLeft, shieldBottom);
+let shield = newImage('assets/shield.png', '165px', '185px');
 document.body.append(shield)
 
 shield.addEventListener('click', function(){
     shield.remove()
 })
 
-staffPath = 'assets/staff.png'
-staffLeft = '600px'
-staffBottom = '100px'
-let staff = newImage(staffPath, staffLeft, staffBottom);
+let staff = newImage('assets/staff.png', '600px', '100px');
 document.body.append(staff)
 
 staff.addEventListener('click', function(){
     staff.remove()
 })
 
+
+
+
+// Get window width and height
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+// Calculate the number of repetitions needed to fill the width
+var repetitions = parseInt(w / 100);
+
+// Set background images for the top and bottom sections using a loop
+var topBackground = '';
+var bottomBackground = '';
+for (var i = 0; i < repetitions; i++) {
+topBackground += "url('assets/sky.png'), ";
+bottomBackground += "url('assets/grass.png'), ";
+}
+
+// Remove the trailing comma and space from the background strings
+topBackground = topBackground.slice(0, -2);
+bottomBackground = bottomBackground.slice(0, -2);
+
+// Create top section div and set its styles
+var topSection = document.createElement('div');
+topSection.className = 'section top-section';
+topSection.style.height = (h / 2) + 'px';
+topSection.style.backgroundImage = topBackground;
+
+// Create bottom section div and set its styles
+var bottomSection = document.createElement('div');
+bottomSection.className = 'section bottom-section';
+bottomSection.style.height = (h / 2) + 'px';
+bottomSection.style.backgroundImage = bottomBackground;
+
+// Append the sections to the body
+document.body.appendChild(topSection);
+document.body.appendChild(bottomSection);
 
